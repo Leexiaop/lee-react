@@ -17,6 +17,7 @@ module.exports = {
     plugins: [
         'react'
     ],
+    parser: 'babel-eslint',
     rules: {
         indent: ['error', 4],
         'arrow-body-style': ['error', 'always'],
@@ -27,6 +28,19 @@ module.exports = {
         }],
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
-        'comma-dangle': ['error', 'never']
+        'comma-dangle': ['error', 'never'],
+        'import/no-extraneous-dependencies': [2, {
+            devDependencies: true,
+            peerDependencies: true,
+            optionalDependencies: true,
+            bundledDependencies: true
+        }],
+        'global-require': 0,
+        'arrow-parens': ['error', 'as-needed'],
+        'no-console': 'off',
+        'react/prop-types': 'off',
+        strict: 0,
+        'react/jsx-props-no-spreading': 'off',
+        'no-param-reassign': ['error', { props: false }]
     }
 };
