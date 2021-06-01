@@ -1,7 +1,8 @@
+import { Button } from 'antd-mobile';
 import React, { useState } from 'react';
 import './login.scss';
 
-const Login = () => {
+const Login = props => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const onUsernameChange = e => {
@@ -10,12 +11,15 @@ const Login = () => {
     const onPasswordChange = e => {
         setPassword(e.target.value);
     };
+    const submit = () => {
+        props.history.push({ pathname: '/home' });
+    };
     return (
         <div className="login">
             <div className="main">
                 <div className="username">
                     <label htmlFor="username">
-                        Username：
+                        <div className="name">Username</div>
                         <input
                             type="text"
                             name="username"
@@ -28,7 +32,7 @@ const Login = () => {
                 </div>
                 <div className="password">
                     <label htmlFor="password">
-                        Password:
+                        <div className="name">Password</div>
                         <input
                             type="text"
                             name="password"
@@ -38,6 +42,12 @@ const Login = () => {
                             onChange={onPasswordChange}
                         />
                     </label>
+                </div>
+                <br />
+                <div className="btn">
+                    <Button type="primary" onClick={submit}>登陆</Button>
+                    <br />
+                    <Button type="default">注册</Button>
                 </div>
             </div>
         </div>
